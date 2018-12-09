@@ -1,3 +1,8 @@
+<div *ngIf="!hasAnyFeedSetup" class="noFeedSetup">
+  <p>Yo Man! It Looks like you dont have any feeds set up.</p>
+  <p>Add a feed from the left hand sidebar.</p>
+</div>
+
 <p *ngIf="isFetching">Loading feed data....</p>
 
 <p *ngIf="hasErrorFetchingFeedData">There was an error fetching the feed data.</p>

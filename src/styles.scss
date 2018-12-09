@@ -50,6 +50,10 @@ input[type=text] {
   text-align: left;
 }
 
+.main {
+  padding: 0 2em;
+}
+
 @import './styles/_button';
 @import './styles/_sidebar';
 @import './styles/_feed-list';

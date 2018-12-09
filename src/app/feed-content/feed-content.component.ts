@@ -13,8 +13,11 @@ export class FeedContentComponent implements OnInit {
   feedItems: FeedItem[];
   isFetching = false;
   hasErrorFetchingFeedData = false;
+  hasAnyFeedSetup = false;
 
-  constructor(private feedService: FeedService) { }
+  constructor(private feedService: FeedService) {
+    this.feedService.getAll().subscribe(feeds => this.hasAnyFeedSetup = feeds.length > 0);
+  }
 
   ngOnInit() {
     this.retreivedFeedData();
@@ -28,6 +31,11 @@ export class FeedContentComponent implements OnInit {
 
   retreivedFeedData() {
     this.feedItems = [];
+
+    if(!this.feed) {
+      return;
+    }
+
     this.isFetching = true;
     this.hasErrorFetchingFeedData = false;
 
