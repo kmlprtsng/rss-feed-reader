@@ -16,7 +16,10 @@ export class FeedContentComponent implements OnInit {
   hasAnyFeedSetup = false;
 
   constructor(private feedService: FeedService) {
-    this.feedService.getAll().subscribe(feeds => this.hasAnyFeedSetup = feeds.length > 0);
+    this.feedService.getAll().subscribe(feeds => {
+      this.hasAnyFeedSetup = feeds.length > 0;
+      this.hasErrorFetchingFeedData = false;
+    });
   }
 
   ngOnInit() {
