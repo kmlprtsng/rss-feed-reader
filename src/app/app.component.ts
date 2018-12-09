@@ -51,6 +51,7 @@ export class AppComponent {
   filterFeeds() {
     if (this.feedFilterKeyword.trim() === '') {
       this.filteredFeeds = this.feeds;
+      return;
     }
 
     this.filteredFeeds = this.feeds.filter(feed => feed.name.indexOf(this.feedFilterKeyword) > -1);
