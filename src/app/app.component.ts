@@ -47,6 +47,10 @@ export class AppComponent {
 
   removeFeed(feed: Feed) {
     this.feedService.remove(feed);
+
+    if(this.selectedFeed === feed) {
+      this.selectedFeed = null;
+    }
   }
 
   filterFeeds() {
