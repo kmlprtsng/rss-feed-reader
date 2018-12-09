@@ -7,9 +7,9 @@
   <p>Wussup! Select a feed from left hand side to see its articles.</p>
 </div>
 
-<p *ngIf="isFetching">Loading feed data....</p>
+<p *ngIf="isFetching" class="promptMsg">Loading feed data....</p>
 
-<p *ngIf="hasErrorFetchingFeedData">There was an error fetching the feed data.</p>
+<p *ngIf="hasErrorFetchingFeedData" class="promptMsg">There was an error fetching the feed data.</p>
 
 <ul *ngIf="!isFetching">
   <li *ngFor="let feedItem of feedItems">{{feedItem.title}}</li>
