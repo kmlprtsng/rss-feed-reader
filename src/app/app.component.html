@@ -11,7 +11,9 @@
 <input type="text" [(ngModel)]="feedFilterKeyword" (input)="filterFeeds()">
 <ul>
   <li *ngFor="let feed of filteredFeeds">
-    {{feed.name}}
+    <a href="javascript:void(0)" (click)="displayFeedContent(feed)">{{feed.name}}</a>
     <a href="javascript:void(0)" (click)="removeFeed(feed)">X</a>
   </li>
 </ul>
+
+<app-feed-content [feed]="selectedFeed" *ngIf="selectedFeed"></app-feed-content>

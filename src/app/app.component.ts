@@ -14,6 +14,7 @@ export class AppComponent {
   newFeed = {name: '', url: ''};
   feedFilterKeyword = '';
   filteredFeeds = this.feeds;
+  selectedFeed: Feed;
 
   constructor(private feedService: FeedService, private urlValidatorService: UrlValidatorService) {
     this.feedService.getAll().subscribe((feeds: Feed[]) => {
@@ -55,5 +56,9 @@ export class AppComponent {
     }
 
     this.filteredFeeds = this.feeds.filter(feed => feed.name.indexOf(this.feedFilterKeyword) > -1);
+  }
+
+  displayFeedContent(feed: Feed) {
+    this.selectedFeed = feed;
   }
 }

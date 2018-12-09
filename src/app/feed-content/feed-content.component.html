@@ -1,0 +1,7 @@
+<p *ngIf="isFetching">Loading feed data....</p>
+
+<p *ngIf="hasErrorFetchingFeedData">There was an error fetching the feed data.</p>
+
+<ul *ngIf="!isFetching">
+  <li *ngFor="let feedItem of feedItems">{{feedItem.title}}</li>
+</ul>
