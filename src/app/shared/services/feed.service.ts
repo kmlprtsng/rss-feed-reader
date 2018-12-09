@@ -9,8 +9,8 @@ import { HttpClient } from '@angular/common/http';
 const seedFeedData: Feed[] = [ new Feed('Reddit Giffs', 'https://www.reddit.com/r/gifs.rss'), new Feed('Tech Crunch', 'https://techcrunch.com/feed/')];
 @Injectable()
 export class FeedService {
-  private feeds: Feed[];
-  private feedsRx = new BehaviorSubject<Feed[]>(seedFeedData);
+  private feeds: Feed[] = seedFeedData;
+  private feedsRx = new BehaviorSubject<Feed[]>(this.feeds);
 
   constructor(private http: HttpClient) {
   }
