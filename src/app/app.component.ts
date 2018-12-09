@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { FeedService } from './feed.service';
-import { UrlValidatorService } from './url-validator.service';
+import { FeedService } from './shared/services/feed.service';
+import { UrlValidatorService } from './shared/services/url-validator.service';
 import { Feed } from './models/feed';
 
 @Component({

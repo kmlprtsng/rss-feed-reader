@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Feed } from './models/feed'
+import { Feed } from '../../models/feed';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 

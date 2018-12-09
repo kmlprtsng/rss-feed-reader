@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { FeedService } from './feed.service';
-import { UrlValidatorService } from './url-validator.service';
+import { FeedService } from './shared/services/feed.service';
+import { UrlValidatorService } from './shared/services/url-validator.service';
 
 @NgModule({
   declarations: [
