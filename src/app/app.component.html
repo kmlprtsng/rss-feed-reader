@@ -1,19 +1,34 @@
-<h1>Content Generator</h1>
+<div class="container">
+  <div class="sidebar">
+    <div class="sidebar__header">
+      <h1>Content Generator</h1>
+    </div>
 
-<form (submit)="addFeed($event)">
-  <input #newFeedName type="text" placeholder="Type your feed name..." [(ngModel)]="newFeed.name" [ngModelOptions]="{standalone: true}" />
-  <input type="text" placeholder="Copy your RSS Url" [(ngModel)]="newFeed.url" [ngModelOptions]="{standalone: true}" />
-  <input type="submit" value="Add Feed" />
-</form>
+    <div class="sidebar__filter">
+        <input type="text" [(ngModel)]="feedFilterKeyword" (input)="filterFeeds()" placeholder="|Filter your feeds..." class="filterTextbox" />
+    </div>
 
-<h2>Feed Filter</h2>
+    <div class="sidebar__feeds">
+      <ul class="feedList">
+        <li *ngFor="let feed of filteredFeeds" class="feedList__item">
+          <a href="javascript:void(0)" (click)="displayFeedContent(feed)">{{feed.name}}</a>
+          <a href="javascript:void(0)" (click)="removeFeed(feed)">X</a>
+        </li>
+      </ul>
+    </div>
 
-<input type="text" [(ngModel)]="feedFilterKeyword" (input)="filterFeeds()">
-<ul>
-  <li *ngFor="let feed of filteredFeeds">
-    <a href="javascript:void(0)" (click)="displayFeedContent(feed)">{{feed.name}}</a>
-    <a href="javascript:void(0)" (click)="removeFeed(feed)">X</a>
-  </li>
-</ul>
+    <div class="sidebar__addFeed">
+      <h2>Add a new feed</h2>
 
-<app-feed-content [feed]="selectedFeed" *ngIf="selectedFeed"></app-feed-content>
+      <form (submit)="addFeed($event)">
+        <input #newFeedName type="text" placeholder="|Type your feed name..." [(ngModel)]="newFeed.name" [ngModelOptions]="{standalone: true}" />
+        <input type="text" placeholder="|Copy your RSS Url" [(ngModel)]="newFeed.url" [ngModelOptions]="{standalone: true}" />
+        <input class="button" type="submit" value="Add feed" />
+      </form>
+    </div>
+  </div>
+
+  <div class="main">
+    <app-feed-content [feed]="selectedFeed" *ngIf="selectedFeed"></app-feed-content>
+  </div>
+</div>

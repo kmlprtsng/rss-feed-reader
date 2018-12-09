@@ -1,6 +1,55 @@
 @import 'normalize.css';
-@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400');
 
-body {
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html, body, app-root, .container {
+  display: block;
+  height: 100%;
+}
+
+body, input {
   font-family: 'Lato', sans-serif;
 }
+
+.container {
+  display: flex;
+}
+
+.main {
+  flex-basis: 70%;
+}
+
+input[type=text] {
+  border-radius: 22px;
+  border: 3px solid #727c85;
+  padding: 5px 11px;
+  background: #454e57;
+  color: #9aa0a9;
+  font-size: 0.9em;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.filterTextbox {
+  margin-bottom: 2em;
+}
+
+.unstyledList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+@import './styles/_button';
+@import './styles/_sidebar';
+@import './styles/_feed-list';

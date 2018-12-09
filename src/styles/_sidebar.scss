@@ -1,0 +1,49 @@
+.sidebar {
+  flex-basis: 30%;
+  color: white;
+  height: 100%;
+  background: #566069;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.sidebar__header {
+  h1 {
+    font-weight: 100;
+    font-size: 1.6em;
+    margin: 3em 0;
+    text-align: center;
+  }
+}
+
+.sidebar__feeds {
+  flex: 1;
+  overflow-y: scroll;
+}
+
+.sidebar__filter input {
+  width: 100%;
+}
+
+.sidebar__addFeed {
+  border-top: 2px solid #737d86;
+
+  h2 {
+    font-weight: normal;
+    font-size: 1em;
+    text-align: center;
+    margin-bottom: 1.4em;
+    margin-top: 4em;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+
+  .button {
+    margin-bottom: 3.5em;
+  }
+}

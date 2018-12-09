@@ -1,0 +1,14 @@
+.feedList {
+  @extend .unstyledList;
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.feedList__item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}

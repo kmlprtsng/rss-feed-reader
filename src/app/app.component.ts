@@ -50,12 +50,14 @@ export class AppComponent {
   }
 
   filterFeeds() {
-    if (this.feedFilterKeyword.trim() === '') {
+    let keyword = this.feedFilterKeyword.trim().toLowerCase();
+
+    if (keyword === '') {
       this.filteredFeeds = this.feeds;
       return;
     }
 
-    this.filteredFeeds = this.feeds.filter(feed => feed.name.indexOf(this.feedFilterKeyword) > -1);
+    this.filteredFeeds = this.feeds.filter(feed => feed.name.toLowerCase().indexOf(keyword) > -1);
   }
 
   displayFeedContent(feed: Feed) {
