@@ -10,12 +10,15 @@ import { Feed } from './models/feed';
 })
 export class AppComponent {
   @ViewChild('newFeedName') private newFeedNameElm: ElementRef;
-  feeds: Feed[];
+  feeds: Feed[] = [];
   newFeed = {name: '', url: ''};
+  feedFilterKeyword = '';
+  filteredFeeds = this.feeds;
 
   constructor(private feedService: FeedService, private urlValidatorService: UrlValidatorService) {
     this.feedService.getAll().subscribe((feeds: Feed[]) => {
       this.feeds = feeds;
+      this.filterFeeds();
     });
   }
 
@@ -43,5 +46,13 @@ export class AppComponent {
 
   removeFeed(feed: Feed) {
     this.feedService.remove(feed);
+  }
+
+  filterFeeds() {
+    if (this.feedFilterKeyword.trim() === '') {
+      this.filteredFeeds = this.feeds;
+    }
+
+    this.filteredFeeds = this.feeds.filter(feed => feed.name.indexOf(this.feedFilterKeyword) > -1);
   }
 }
