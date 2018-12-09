@@ -1,7 +1,14 @@
 <h1>Content Generator</h1>
 
 <form (submit)="addFeed($event)">
-  <input type="text" placeholder="Type your feed name..." [(ngModel)]="newFeed.name" [ngModelOptions]="{standalone: true}" />
+  <input #newFeedName type="text" placeholder="Type your feed name..." [(ngModel)]="newFeed.name" [ngModelOptions]="{standalone: true}" />
   <input type="text" placeholder="Copy your RSS Url" [(ngModel)]="newFeed.url" [ngModelOptions]="{standalone: true}" />
   <input type="submit" value="Add Feed" />
 </form>
+
+<ul>
+  <li *ngFor="let feed of feeds">
+    {{feed.name}}
+    <a href="javascript:void(0)" (click)="removeFeed(feed)">X</a>
+  </li>
+</ul>

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { FeedService } from './feed.service';
 import { UrlValidatorService } from './url-validator.service';
+import { Feed } from './models/feed';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,14 @@ import { UrlValidatorService } from './url-validator.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  @ViewChild('newFeedName') private newFeedNameElm: ElementRef;
+  feeds: Feed[];
   newFeed = {name: '', url: ''};
 
   constructor(private feedService: FeedService, private urlValidatorService: UrlValidatorService) {
-
+    this.feedService.getAll().subscribe((feeds: Feed[]) => {
+      this.feeds = feeds;
+    });
   }
 
   addFeed(event: Event) {
@@ -32,7 +37,11 @@ export class AppComponent {
     this.newFeed.name = '';
     this.newFeed.url = '';
 
+    this.newFeedNameElm.nativeElement.focus();
     event.preventDefault();
-    console.log(this.feedService.getAll())
+  }
+
+  removeFeed(feed: Feed) {
+    this.feedService.remove(feed);
   }
 }
